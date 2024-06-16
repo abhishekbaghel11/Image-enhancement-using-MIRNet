@@ -35,9 +35,10 @@ def inference(file_path, weights, save_dir):
     )
 
     # start the inference process
-    for low_light_image in tqdm(sorted(os.listdir(file_path)), desc = 'Percentage of images converted'):
+    for low_light_image in tqdm(sorted([file for file in os.listdir(file_path) if not file.startswith('.')]), desc = 'Percentage of images converted'):
         file_name = (low_light_image).split('/')[-1].split('.')[0]
         original_img = Image.open(os.path.join(file_path,low_light_image))
+        original_img = original_img.convert('RGB')
         original_shape = original_img.size
         original_img = original_img.resize((600,400))
 
