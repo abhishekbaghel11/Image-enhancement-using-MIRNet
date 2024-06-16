@@ -106,7 +106,7 @@ if __name__ == "__main__":
     parser.add_argument('--epochs', type = int, default = 1, help = 'Number of iterations to train the data')
     parser.add_argument('--validation_split', type = int, default = None, help = 'Defines the split for the validation data in the training data')
     parser.add_argument('--validation_data', type = str, default = None, help = 'Path to the validation data (overwrites the validation split argument if any path is given)')
-    parser.add_argument('--save_weights_path', type = str, default = None, help= 'Path to the folder where to save the weights and the plots after training')
+    parser.add_argument('--save_weights_path', type = str, default = "", help= 'Path to the folder where to save the weights and the plots after training')
     parser.add_argument('--plot_data', type = int, default = 0, help = 'Show the plot of the data or not (data --> losses and the psnr)')
     parser.add_argument('--batch_size', type = int, default= 4, help = 'Define the batch size')
 
