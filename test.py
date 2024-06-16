@@ -35,8 +35,8 @@ def inference(file_path, weights, save_result_img, save_path):
     )
 
     # obtain the list of test images
-    test_low = sorted(glob(os.path.join(file_path,"low/*")))
-    test_enhanced = sorted(glob(os.path.join(file_path,"high/*")))
+    test_low = sorted([file for file in glob(os.path.join(file_path,"low/*")) if not file.split('/')[-1].startswith('.')])
+    test_enhanced = sorted([file for file in glob(os.path.join(file_path,"high/*")) if not file.split('/')[-1].startswith('.')])
 
     number_of_images = len(test_low)
     
@@ -51,6 +51,7 @@ def inference(file_path, weights, save_result_img, save_path):
     for low_light_img, ground_truth_img in tqdm(zip(test_low,test_enhanced), desc = 'Percentage of images converted', total = number_of_images):
         file_name = (low_light_img).split('/')[-1].split('.')[0]
         original_img = Image.open(low_light_img)
+        original_img = original_img.convert('RGB')
         original_shape = original_img.size
         original_img = original_img.resize((600,400))
 
@@ -60,12 +61,13 @@ def inference(file_path, weights, save_result_img, save_path):
         high_light_img = high_light_img.resize(original_shape)
 
         ground_truth_img = Image.open(ground_truth_img)
+        ground_truth_img = ground_truth_img.convert('RGB')
 
         psnr = calculate_psnr(np.array(ground_truth_img), np.array(high_light_img))
         total_avg_psnr += psnr
 
         # save the resulting image
-        if(save_result_img != False):
+        if(save_result_img != 0):
             if(save_path == None):
                 raise ValueError("Please provide the save_path in order to save the resulting enhanced images!")
             
@@ -87,7 +89,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--file_path', type = str, required = True, help = 'Path to the data to test the model on (should contain low as well as high)')
     parser.add_argument('--weights', type = str, default = None, help = 'Path to the pretrained model weights')
-    parser.add_argument('--save_result_img', type = bool, default = False, help= 'Whether to save resulting images or not')
+    parser.add_argument('--save_result_img', type = int, default = 0, help= 'Whether to save resulting images or not')
     parser.add_argument('--save_path', type = str, default = None, help = 'Path to save the resulting images if the save_result_img argument is set to true')
 
     args = parser.parse_args()
