@@ -2,7 +2,7 @@
 
 This repository helps to denoise the extreme low light images using MIRNet model and enhance those images.
 
-For reading more about the MIRNet algorithm, its architecture and also about the configurations used in this repository, please refer to the following doc: - https://drive.google.com/file/d/1UzLwNy-qZfpPgRx9QdONCzuJfa82N_t_/view?usp=sharing
+For reading more about the MIRNet algorithm, its architecture and also about the configurations used in this repository, please refer to the following doc report.
 
 
 # Installation guide:
