@@ -28,6 +28,10 @@ unzip -q lol_dataset.zip && rm lol_dataset.zip
 
 # Running the files
 
+## Tutorial file 
+
+- You can check the tutorial file to see how the different files are run and how to download the LoL dataset as well as the pre trained weights -or- you can also check out the google colab file for the same --> https://colab.research.google.com/drive/14WPjWLo-AbbxdEE9cItKKPW6O7S1DsdU?authuser=2#scrollTo=Quqd6xVeeQWl
+
 ## For training
 
 - You have to use the train.py file in order to train the model, the various parameters that you need to pass while running the file are: - 
