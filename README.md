@@ -85,6 +85,9 @@ unzip -q lol_dataset.zip && rm lol_dataset.zip
 
 # Image enhancement results:
 
+- The results of the model are given here. The dataset used is the LoL dataset in which the train dataset consists of 385 images, the validation dataset consists of 100 images and the test dataset consists of 15 images. 
+
+![Results](https://drive.google.com/uc?export=view&id=16xr0V5l-xvYG_SaBQFwGYwUf_nVczecM)
 ![Img1](https://drive.google.com/uc?export=view&id=1LH4Ng7rxHtYht5nDUBw9zzAmIF1fPchA)
 ![Img2](https://drive.google.com/uc?export=view&id=1Vsy5-aogiE7TCpD8ewsLNEMZiDTv7DbB)
 
