@@ -10,7 +10,7 @@ For reading more about the MIRNet algorithm, its architecture and also about the
 - Just install the libraries in the requirements.txt manually or run the following script after cloning the repository: - 
 ```
 git clone https://github.com/abhishekbaghel11/Image-enhancement-using-MIRNet
-cd yolov7
+cd Image-enhancement-using-MIRNet
 pip install -r requirements.txt
 ```
 
